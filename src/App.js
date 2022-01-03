@@ -17,10 +17,12 @@ function App() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+    <div className="container d-flex justify-content-center mt-5 ">
+      <form className="row col-6 " onSubmit={handleSubmit(onSubmit)}>
         <label>First Name</label>
         <input
+          required
+          className="rounded-pill"
           placeholder="First name"
           {...register("firstName", {
             required: true,
@@ -39,18 +41,27 @@ function App() {
         )}
         <label>Last Name</label>
         <input
+          required
+          className="rounded-pill"
           placeholder="Last name"
           {...register("lastName", { pattern: /^[A-Za-z]+$/i })}
         />
         {errors?.lastName?.type === "pattern" && (
           <p>Alphabetical characters only</p>
         )}
-        <label>Age</label>a
-        <input placeholder="Age" {...register("age", { min: 18, max: 60 })} />
+        <label>Age</label>
+        <input
+          required
+          className="rounded-pill"
+          placeholder="Age"
+          {...register("age", { min: 18, max: 60 })}
+        />
         {errors.age && (
           <p>You Must be older then 18 and younger then 60 years old</p>
         )}
-        <input type="submit" />
+        <label></label>
+        <br />
+        <input type="submit" className="col-6 rounded-pill" />
       </form>
     </div>
   );
