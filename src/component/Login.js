@@ -13,7 +13,7 @@ function Login() {
     // alert(data);
     // alert(pass);
     console.log(data, pass);
-    setValue(true)
+    setValue(true);
   };
   const getuserId = (e) => {
     console.log(e.target.value);
