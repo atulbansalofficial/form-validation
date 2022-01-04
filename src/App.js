@@ -4,18 +4,13 @@ function App() {
   const [name, setName] = useState("");
   const [selecter, setSelector] = useState("");
   const [tnc, setTnc] = useState(false);
- 
 
   const getFormData = (e) => {
     e.preventDefault();
-  
-   console.log(name,selecter,tnc);
-   
-    
-   
-    
+
+    console.log(name, selecter, tnc);
   };
-  
+
   return (
     <div>
       <div className="container ">
@@ -25,11 +20,11 @@ function App() {
             type="text"
             placeholder="Enter name"
             value={name}
-            onChange={(e)=> setName(e.target.value)}
+            onChange={(e) => setName(e.target.value)}
           />
           <br />
           <br />
-          <select onChange={(e)=> setSelector(e.target.value)}>
+          <select onChange={(e) => setSelector(e.target.value)}>
             <option value="0">Select Option</option>
             <option value="1">Marvel</option>
             <option value="2">DC</option>
