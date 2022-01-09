@@ -1,10 +1,10 @@
 import React from "react";
-import Form from "./component/Form";
+import PostForm from "./PostForm";
 
 function App() {
   return (
     <div>
-      <Form />
+      <PostForm />
     </div>
   );
 }
