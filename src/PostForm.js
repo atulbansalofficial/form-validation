@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Axios from "axios";
+// import Axios from "axios";
 
 function PostForm() {
   const url = "http://localhost:4000/api/students";
@@ -7,10 +7,13 @@ function PostForm() {
     first_name: "atul",
     last_name: "bansal",
     email: "atulbansal@gmail.com",
+    password: null,
   });
 
   function submit(e) {
     e.preventDefault();
+    console.log(data);
+    
 
     // Axios.post(url, {
     //   first_name: data.first_name,
@@ -55,10 +58,18 @@ function PostForm() {
             type="email"
             id="email"
             placeholder="E-mail"
+          />{" "}
+          <br />
+          <br />
+          <label htmlFor="password">Password : &nbsp;</label>
+          <input
+            onChange={(e) => handle(e)}
+            type="password"
+            id="password"
+            placeholder="Password"
           />
           <br />
           <br />
-
           <button>Submit</button>
         </form>
       </div>
