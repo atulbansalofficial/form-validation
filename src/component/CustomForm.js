@@ -1,11 +1,17 @@
 import React from 'react'
 
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as yup from 'yup';
 
 const CustomForm = () => {
-  // console.log("Formik==>", Formik)
-  // console.log("Form==>", Form)
-  // console.log("Form==>", Field)
+  const validationSchema = yup.object().shape({
+    phone: yup.string().required(),
+    name: yup.string()
+      .min(2, 'Too Short!')
+      .max(8, 'Too Long!')
+      .required('Required'),
+
+  })
 
   const object = {
     name: "",
@@ -24,11 +30,14 @@ const CustomForm = () => {
   }
   return (
     <div>
-      <Formik initialValues={object}
+      <Formik initialValues={object} validationSchema={validationSchema}
         onSubmit={(value) => console.log(value)}>
         <Form> <br />
           <label htmlFor="name">Name: </label>
           <Field name="name" id="name" type="text"></Field>
+
+          <br />
+          <ErrorMessage name='name' />
           <br />
           <label htmlFor="phone">Phone: &nbsp;&nbsp;</label>
           <Field name="phone" id="phone" type="number"></Field>
